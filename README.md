@@ -1,12 +1,13 @@
 # myobject
 
         ##项目功能：
-        
+
+        网站前台：
         http://39.106.36.30:8002
         测试账号mummylin 123
        
-        网站前台：
-        ![Alt text](myobject/myobject/static/descimg/前台首页.png)
+        ![Alt text](https://github.com/yule0512/myobject/blob/master/myobject/static/descimg/%E5%89%8D%E5%8F%B0%E9%A6%96%E9%A1%B5.png)
+        
            商城首页：各种产品展示（最新，热点，分类..）
            商品列表：搜索分类分页展示各种商品
            商品详情：展示详细商品信息（购买记录，评论，其他推荐）
