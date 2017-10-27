@@ -5,6 +5,7 @@
 ### 网站前台：
        
         ![前台预览](https://github.com/yule0512/myobject/blob/master/myobject/static/descimg/%E5%89%8D%E5%8F%B0%E9%A6%96%E9%A1%B5.png)
+        
         http://39.106.36.30:8002
         测试账号mummylin 123
         
@@ -20,8 +21,9 @@
 ### 网站后台：
 
        ![后台预览](https://github.com/yule0512/myobject/blob/master/myobject/static/descimg/%E5%90%8E%E5%8F%B0%E9%A6%96%E9%A1%B5.png)
+      
        http://39.106.36.30:8002/myadmin/login
-       测试账号mummylin 123
+       测试账号mummylin 123
             会员管理：添加，浏览，删除，修改
             商品类别管理：浏览，添加，删除（删除空类别），修改（只改类别名称）
             商品管理：添加，浏览（搜索分页），增，删，改
