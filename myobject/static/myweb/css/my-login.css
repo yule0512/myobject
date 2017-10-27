@@ -1,0 +1,56 @@
+#logoDiv a img{
+	border-color:#F2F2F2;
+	box-shadow:2px 1px 1px;
+}
+#mynva #logoDiv{
+	/*padding-left: 200px;*/
+	padding-top:-20px;
+}
+
+/* 最上层导航右边的登录 注册按钮 */
+
+#mynva #lar{
+	width:200px;
+	height: 40px;
+	float: right;
+}
+
+#lar ul li{
+	float:left;
+	list-style: none;
+	padding-top: 15px;
+	padding-left: 15px;
+	color: #ffffff;
+}
+#lar ul li a{
+	color: #ffffff;
+}
+#lar ul li a{
+	text-decoration: none;	
+}
+
+/* 登录表单 */
+
+.loginForm{
+	/*border:1px solid red;*/
+/*	width: 500px;
+	height: 400px;*/
+}
+
+.myinfo input{
+	width:250px;
+}
+.mybtn{
+	width:250px;
+	background: #FE4172;
+}
+.otherlogin{
+	width: 60%;
+	height:30px;
+	text-align: center;
+}
+.thefooter{
+	height: 30px;
+	background: #F6F6F6;
+	text-align: center;
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!-- saved from url=(0186)https://id.meitu.com/mauth?client_id=190000&action=login&display=iframe&redirect_uri=http%3A%2F%2Flogin.meitu.com%2Fcallback%3Frefer%3Dhttp%253A%252F%252Fcart.meitu.com%252Fchoose%252Fm8 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>美图会员帐号中心</title>
+  <meta name="keywords" content="&gt;美图会员、帐号中心">
+  <meta name="description" content="&gt;美图会员帐号中心">
+  <link href="./style.css" rel="stylesheet">
+  
+<style>
+
+	#auth-container{width: 420px;margin: 0 auto;}
+	.auth-header-content {height: 60px;width: 420px;margin: 0 auto;}
+	.auth-nav{ border-bottom: 1px solid #efefef;position: absolute;top:0;left:0;width: 420px;font-family: Microsoft Yahei;font-size: 16px;}
+	.auth-nav-item{display: inline-block;margin: 5px 15px 0 33px;line-height: 45px;}
+	.auth-nav a{color: #888;}
+	.auth-nav .current{color: #444;cursor: default;}
+	.auth-nav-tip{position: absolute;bottom: -1px;border-bottom: 2px solid #F34035;width: 105px;left: 31px; -webkit-transition:left .2s linear;
+	-moz-transition:left .2s linear;
+	-ms-transition:left .2s linear;
+	-o-transition:left .2s linear;
+	transition:left .2s linear;
+	
+	}
+	.auth-nav-tip .others{width: 98px;left:150px;}
+	.btn-auth{display: block;width: 180px;height: 210px;overflow: hidden;text-overflow: ellipsis;margin: 64px auto 20px 30px;position: relative;}
+	.btn-auth span,.btn-auth img{display: block;text-align: center;}
+	.btn-auth span.name{padding:10px 0;font-size: 14px;color: #a8a8a8;}
+	.btn-auth .text-des{position: absolute;padding:5px 0;background: #000;opacity: 0.5;filter:alpha(opacity=50);color: #fff;text-align: center;width: 180px;bottom: 30px;}
+	.change-user{margin-top:30px;text-align:center;padding:15px 0;border-top:1px dashed #dadada}
+	/*新增修改*/
+	.login_r{
+			box-sizing: border-box;
+			overflow: hidden;
+			margin-right: 0px;
+		}
+	@media only screen and (max-width:414px) {
+		.login_r{
+			width: 100%;
+		}
+		.btn-auth{margin: 60px auto 5px 30px;}
+		.change-user{margin-top: 0;}
+		.login_r{padding: 0;}
+	}
+	
+  </style></head>
+
+<body>
+	<div class="login_r">
+	<form class="login-form">
+		<table width="285" class="loginTable" id="login">
+			<tbody><tr>
+				<td class="item">
+					<label for="username" class="label">美图帐号登录</label>
+					<div class="login-inner mt10">
+						<input type="text" class="textbox" id="username" placeholder="手机号码" autocomplete="off" style="line-height:34px \9;" tabindex="1">
+						<div class="tip">
+							<i class="icon icon-minus"></i><span class="error"></span>
+							<div class="arrow arrow-l">
+								<em>◆</em>
+								<cite>◆</cite>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+				
+			<tr>
+				<td class="item">
+					<div class="login-inner mt10">
+						<input type="password" class="textbox" id="password" placeholder="密码" style="line-height:34px \9;" tabindex="2">
+						<div class="tip">
+							<i class="icon icon-minus"></i><span class="error"></span>
+							<div class="arrow arrow-l">
+								<em>◆</em>
+								<cite>◆</cite>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr id="verifycode-area" class="hide">
+				<td class="item">
+					<div class="login-inner mt10">
+						<input type="text" placeholder="验证码" class="textbox" id="verifycode" style="line-height:34px \9;width:100px;" tabindex="3">
+						<img src="./verify_code" style="width: 90px;height: 33px;vertical-align: top;display:inline-block;margin-left:6px;" id="verify_img">
+						<a href="javascript:void(0);" id="tchange" style="color:#787878">&nbsp;&nbsp;刷新</a>
+						<div class="tip">
+							<i class="icon icon-minus"></i><span class="error"></span>
+							<div class="arrow arrow-l">
+								<em>◆</em>
+								<cite>◆</cite>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="clearfix mt10">
+						<a href="https://id.meitu.com/forgot_password" target="_blank" class="fr pink">忘记密码？</a><label for="remember_me"><input type="checkbox" id="remember_me" class="checkbox" tabindex="4">两周内自动登录</label>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="item-td">
+					<a href="javascript:;" class="btn btn-b" id="btn-login" tabindex="3">登 录</a>
+				</td>
+			</tr>
+
+			
+		</tbody></table>
+		<div class="connectArea thirdparty-icon">
+			或使用其他方式登录：
+			<p class="center">
+				<a target="_top" href="https://id.meitu.com/connect/weibo"><i class="icon icon-sina"></i></a>
+				<a target="_top" href="https://id.meitu.com/connect/qq/"><i class="icon icon-qq"></i></a>
+				<!--<a target="_top" href="/connect/alipay/"><i class="icon icon-alipay"></i></a>-->
+				<!--<a target="_top" href="/connect/renren/"><i class="icon icon-renren"></i></a>-->
+				<!--<a target="_top" href="/connect/douban/"><i class="icon icon-douban"></i></a>-->
+			</p>
+		</div>
+	</form>
+	<div class="guide-reg">
+		还没有美图帐号？<a href="https://id.meitu.com/register" target="_blank" class="pink">立即注册</a>
+	</div>
+</div>
+<input type="hidden" id="targetValue" value="_top">
+<script type="text/javascript" async="" charset="utf-8" src="./core(1).php"></script><script src="./jquery-1.8.0.min.js"></script>
+<script src="./common.js"></script>
+<script>
+MT.login();
+	
+	var $btn = $('#btn-login');
+
+	$('#verifycode').keydown(function(e){
+		if(e.keyCode==13){
+			$btn.click();
+
+		}
+		
+	});
+
+	/*验证码刷新*/
+	$("#tchange,#verify_img").click(function(){
+		$("#verify_img").attr("src","/common/verify_code?"+Math.random());
+		return false;
+	});
+
+
+	$btn.click(function(){
+
+		var flag_username, 
+	        flag_password, 
+	        flag_verifycode,
+	        $this = $(this);
+	        $username = $('#username'),
+	        $password = $('#password'),
+	        remember_me = 1,
+	        $verifycode =  $('#verifycode'),
+		    flag_username = MT.validate.account(),
+		    flag_password = MT.validate.password();
+
+		if($('#remember_me')[0]){
+
+			remember_me = $('#remember_me').is(":checked") ? 1 : 0;
+
+		}
+
+		
+		
+		if(flag_username ) {
+
+			MT.tip.fn(flag_username,$username);
+
+			return false;
+		}
+
+		if(flag_password){
+
+			MT.tip.fn(flag_password,$password);
+			return false;
+		}
+
+		var post_data ={
+			username:$.trim($username.val()),
+			password: $password.val(),
+			remember_me: remember_me
+		}
+
+		if(!$('#verifycode-area').hasClass('hide')){
+
+			var verifycode =  $.trim($verifycode.val());
+
+			post_data.verify_code =  verifycode;
+
+			if(verifycode ==''){
+
+				flag_verifycode = 20765;  //验证码为空
+
+				MT.tip.fn(flag_verifycode,$verifycode);
+
+				return false;
+			}
+
+		}
+
+
+		if($this.hasClass('disable')) return false;
+
+		$this.addClass('disable');
+
+
+		$.post( MT.api.login, post_data,
+
+			function(data){
+
+				$this.removeClass('disable');
+				if(data.verify_uri){
+                    var tag = $('#targetValue').val();
+                    if(tag=='_self'){
+                        location.href = data.verify_uri;
+                    }else{
+                        top.location.href = data.verify_uri;
+                    }
+
+					return false;
+				}
+				
+				if(!data.error_code && data.redirect_uri){
+                    //sso login
+					if(data.sso_login_urls){
+						sso_log_in_out(data.sso_login_urls, data.redirect_uri,true);
+					}else{
+                        var tag = $('#targetValue').val();
+                        if(tag=='_self'){
+                            location.href=data.redirect_uri;
+                        }else{
+                            top.location.href=data.redirect_uri;
+                        }
+
+						return false;
+					}
+					
+				}else{		
+					if(!$('#verifycode-area').hasClass('hide')){
+						$('#tchange').click();
+					}	
+					if(data.error_code == 20031){
+						var $area = $('#verifycode-area');
+						$area.removeClass('hide');
+
+					}
+
+					else if(data.error_code == 20766){
+
+						MT.tip.fn(data.error_code,$verifycode, data.error);
+						MT.tip.fn(false,$username); //隐藏帐号密码的错误提示
+
+						return false;	
+
+					}else{
+
+						MT.tip.fn(false,$verifycode); //隐藏验证码的错误提示
+						MT.tip.fn(data.error_code,$username,data.error);
+						return false;
+					}
+
+				}
+			},
+			'json'
+		);
+
+	});
+
+	$('#username,#password').keypress(function(e){
+		if(e.keyCode == 13) {
+           $btn.click();
+        }
+	});
+</script>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_30050923'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30050923' type='text/javascript'%3E%3C/script%3E"));</script><span id="cnzz_stat_icon_30050923"></span><script src="./c(1).php" type="text/javascript"></script>
+
+</body></html>

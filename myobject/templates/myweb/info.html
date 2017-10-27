@@ -1,0 +1,18 @@
+<!-- 先继承父模板，
+	 再加载当前页面的static文件
+ -->
+{% extends 'myweb/base.html' %}
+{% load static from staticfiles %}
+
+{% block mainbody %}
+	<!-- 内容区域 -->
+	<div style="height: 500px;text-align: center;">
+		<h3>{{ info }}</h3>
+		<!-- 登錄跳轉 -->
+		<span><a href="{% url 'login' %}">{{ label }}</a></span>
+		<!-- 商品列表 -->
+		<span><a href="{% url 'phonelist' %}">{{ info2 }}</a></span>
+	</div>
+	<!-- 内容区域end -->
+
+{%  endblock %}

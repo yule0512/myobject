@@ -1,0 +1,54 @@
+<!-- 继承主体 -->
+{% extends 'myadmin/base.html' %}
+{% load static from staticfiles %}
+
+<!-- 内容部分  商品类别 -->
+{% block mainbody %}
+
+
+	<h3>
+		网站后台订单管理
+	</h3>
+	<legend>订单详情信息</legend>
+
+				<table class="table table-condensed">
+					<tr>
+						<th colspan="2">订单详情</th>
+						<th>单价</th>
+						<th>数量</th>
+						<th></th>
+						<!-- <th>操作</th> -->
+					</tr>
+					{% for order in orderlist %}
+						{% for detail in detaillist %}
+							{% if detail.orderid == order.id %}
+								{% for goods in goodslist %}
+									{% if goods.id == detail.goodsid %}
+									<tr>
+										<!-- <td><input type="checkbox" id="danxuan" name="duoxuan"></td> -->
+										<td><a href="{% url 'detail' goods.id %}"><img src="{% static 'goodsimg/s_80X80' %}{{ goods.picname }}"></a></td>
+										<td><a href="{% url 'detail' goods.id %}">{{detail.name}}</a></td>
+										<td class="price">￥{{ goods.price }}</td>
+										<td class="num">{{ detail.num}}</td>
+										<td class="num">￥{{detail.price}}×{{detail.num}}</td>
+									</tr>
+									{% endif %}
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+
+						<tr>
+							<td colspan="2">
+								<span class="label label-danger"><h4>订单金额：￥{{ order.total }}</h4></span>
+							</td>							
+							<td colspan="3">
+								<h4><span>下单日期{{ order.addtime }}</span></h4>
+							</td>
+						</tr>
+						{% endfor %}
+					</table>	
+	
+
+
+
+{% endblock %}

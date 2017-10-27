@@ -1,0 +1,84 @@
+*{
+	margin:0;
+	padding:0;
+
+}
+body{
+	background: #F8F8F8;
+}
+.isnva{
+	background: #FFFFFF;
+}
+/* 顶部logo */
+.logoimg,.cartitle{
+	float: left;
+	/*border:1px solid red;*/
+	width:250px;
+	height: 100px;
+	line-height: 50px;
+	padding-top:20px;
+}
+/* logo图片大小 */
+.logoimg img{
+	width:220px;
+	height: 45px;
+}
+
+
+/* 购物车标题 */
+
+.cartitle h3{
+	display: inline-block;
+	line-height: 10px;
+	padding-right: 20px;
+}
+
+/* 右边的按钮  登录 注册  购物车 三个按钮*/
+.rightButton{
+	float: right;
+}
+
+.rightButton .dengzhu{
+	float: left;
+	width:115px;
+	height: 45px;
+	margin-top:30px;
+	text-align: center;
+}
+.rightButton .dengzhu ul{
+
+}
+.rightButton .dengzhu ul li{
+	float: left;
+	list-style: none;
+	line-height: 45px;
+	padding-left: 12px;
+}
+.rightButton .dengzhu ul a{
+	text-decoration: none;
+}
+.rightButton #right a{
+	text-decoration: none;
+}
+.rightButton #right a{
+	color: #FCF3F8;
+}
+.rightButton #right{
+	background: #F34A92;
+}
+.rightButton #left:hover{
+	border:1px solid #C8C8C8;
+	box-shadow:1px 1px 1px;
+}
+
+
+
+/* 购物清单 */
+.mygoods{
+	background: #FFFFFF;
+	
+}
+.mytable{
+	/*width: 100px;*/
+	height: 600px;
+}

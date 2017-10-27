@@ -1,0 +1,110 @@
+*{
+	margin: 0;padding:0;
+}
+body{
+	background: #F8F8F8;
+}
+.nva2-1{
+	margin-top:-17px;
+	background: #FFF;
+	border-bottom:1px solid #DCDCDC;
+}
+/*logo图片 的div*/
+.logoimg{
+	float: left;
+	/*border:1px solid red;*/
+	width:250px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+}
+.logoimg img{
+	width:220px;
+	height: 45px;
+}
+.nva2 {
+	float: left;
+	/*border:1px solid red;*/
+	width:360px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+}
+.nva2 ul li{
+	float:left;
+	list-style: none;
+}
+/*手机 配件 服务 福利社 字体样式*/
+.nva2 li a{
+	margin-left: 35px;
+	text-decoration: none;
+	color: #555555;
+}
+.nva2 li a:hover{
+	color: #E92378;
+
+}
+/*右边搜索框*/
+.input-serch{
+	float: right;
+	/*border:1px solid red;*/
+	width:250px;
+	height: 50px;
+	text-align: center;
+	margin-top: 10px;
+}
+/*轮播图片的小点点 位置放在右边一点*/
+.contraP{
+	text-align: right;
+}
+
+/*手机*/
+.istitle{
+	width: auto;
+	height: 60px;
+}
+.istitle .titlename{
+	text-align: left;
+	display: inline-block;
+}
+.istitle .tomore{
+	float: right;
+	size: 20px;
+	line-height: 60px;
+	text-decoration: none;
+}
+.istitle .tomore:hover{
+	color:red;
+}
+
+/* 内容展示 */
+
+.info{
+	/*border:1px solid red;*/
+}
+.info img{
+	width: 100%;
+	height: 100%;
+}
+/* 商品信息 */
+.info2 img{
+	width: 100%;
+	height: 100%;
+}
+.info2 {
+	background: #FFFFFF;
+	text-align: center;
+	border:1px solid #F0F0F0;
+}
+
+.info2 p{
+	color: gray;
+}
+
+/*控制下面美图app广告 图片（标）的大小*/
+.info2 .appImg img{
+	padding-top:20px;
+	width: 100px;
+	height: 120px;
+	text-align: center;
+}

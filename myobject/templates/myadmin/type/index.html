@@ -1,0 +1,74 @@
+<!-- 继承主体 -->
+{% extends 'myadmin/base.html' %}
+
+<!-- 内容部分  商品类别 -->
+{% block mainbody %}
+
+<h3>
+		网站后台用户管理
+	</h3>
+	<legend>浏览会员</legend>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>
+					ID
+				</th>
+				<th>
+					类别名称
+				</th>
+				<th>
+					父类别ID
+				</th>
+				<th>
+					路径
+				</th>
+				<th>
+					操作
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for type in typeslist %}
+			<tr>
+				<td>
+					{{ type.id }}
+				</td>
+				<td>
+					{{type.pname}}|-- {{ type.name }}
+				</td>
+				<td>
+					{{ type.pid }}
+				</td>
+				<td>
+					{{ type.path }}
+				</td>
+				<td>
+					<a href="{% url 'myadmin_typeadd' type.id %}">添加子类别</a>&nbsp;
+					<a href="{% url 'myadmin_typeedit' type.id %}">编辑</a>&nbsp;
+
+					<a href="{% url 'myadmin_typedel' type.id %}">删除</a>
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>				
+<!-- 	<div class="pagination">
+		<ul>
+			<li class="disabled">
+				<a href="#">&laquo;</a>
+			</li>
+ 			{% for pindex in plist %}
+			<li>
+				<a href={% url 'myadmin_typesindex' pindex %}>{{ pindex }}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			</li>
+			{% endfor %}
+			<li>
+				<a href="">&raquo;</a>
+			</li>
+		</ul>
+	</div> -->
+
+
+
+{% endblock %}

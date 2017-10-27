@@ -1,0 +1,83 @@
+{% extends 'myweb/base.html' %}
+{% load static from staticfiles %}
+
+<!-- 个人中心样式 -->
+{% block mylink %}
+  <link rel="stylesheet" type="text/css" href="{% static 'myweb/css/my-center.css' %}">
+{% endblock %}
+
+{% block mainbody %}
+		<div class="container">
+			<!-- 面包屑导航 -->
+			<div class="mianbao">
+				<ol class="breadcrumb" style="background: #F8F8F8">
+				  <li><a href="{% url 'index' %}">首页</a></li>
+				  <li><a href="{% url 'mycenter' request.session.user.id %}">个人中心</a></li>
+				  <li><a href="{% url 'myorder' request.session.user.id %}">所有订单</a></li>
+				  <li class="active">订单详情</li>
+				</ol>
+			</div>
+			
+			<div class="col-md-12 mycenterinfo">
+			<br>
+
+			<div class="mygoods">
+				<table class="table mytable">
+					<tr>
+						<th colspan="2">订单详情</th>
+						<th>单价</th>
+						<th>数量</th>
+						<th></th>
+						<!-- <th>操作</th> -->
+					</tr>
+					{% for order in orderlist %}
+						{% for detail in detaillist %}
+							{% if detail.orderid == order.id %}
+								{% for goods in goodslist %}
+									{% if goods.id == detail.goodsid %}
+									<tr>
+										<!-- <td><input type="checkbox" id="danxuan" name="duoxuan"></td> -->
+										<td><a href="{% url 'detail' goods.id %}"><img src="{% static 'goodsimg/s_80X80' %}{{ goods.picname }}"></a></td>
+										<td><a href="{% url 'detail' goods.id %}">{{detail.name}}</a></td>
+										<td class="price">￥{{ goods.price }}</td>
+										<td class="num">{{ detail.num}}</td>
+										<td class="num">￥{{detail.price}}×{{detail.num}}</td>
+									</tr>
+									{% endif %}
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+
+						<tr>
+							<td colspan="5">
+								<h3><span class="label label-danger">订单金额：</span></h3>
+								<h1>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red">￥</span>{{ order.total }}<span style="color: red">元</span></h1>
+							</td>
+						</tr>
+						{% endfor %}
+					</table>	
+				
+				</div>
+				<!-- 其它 -->
+				<hr>
+				<div class="col-md-12 otherinfo">
+					<h3>常见问题解答</h3>
+					<div class="row">
+						<div class = "col-md-4">
+							<span><h4>订单已经生成了，为什么状态显示是失效的？</h4></span>
+							<p>订单生成后有效时间是1小时，您需要在1小时内完成该笔订单的支付，超过1小时后订单会自动失效。。</p>
+						</div>
+						<div class = "col-md-4">
+							<span><h4>已经支付，但订单信息却显示还未支付成功？</h4></span>
+							<p>1.请先确认相应的支付方式是否成功支付了订单； 2.保留付款截图信息，提供相关订单信息，联系官方在线客服核实处理。</p>
+						</div>
+						<div class = "col-md-4">
+							<span><h4>手机和配件是同一笔订单，可以取消配件，保留手机吗？</h4></span>
+							<p>抱歉，手机和配件是在同一笔订单中的，是无法取消的，两者是捆绑在一笔订单中的；若您需要取消订单中的任一商品，您可以在签收后，联系官网在线客服退款其中的商品。</p>
+						</div>
+					</div>
+				</div>
+  			</div>
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+
+.loginWindow{
+	background-color: #F5F5F5;
+	width: 370px;
+	/*height: 450px;*/
+	/*border:1px solid gray;*/
+	border-radius: 10px;
+	margin:100px auto;
+}
+.loginWindow .logo{
+	padding-top:50px;
+	padding-left: 15px;
+}
+
+.loginWindow span{
+	color:red;
+}

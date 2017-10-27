@@ -1,0 +1,46 @@
+.titler{
+    width: 1080px;
+    margin: 0 auto;
+    border-bottom: 2px solid #e1e1e1;
+    margin-top: 70px;
+    position: relative;
+}
+
+.titler .current {
+    position: absolute;
+    width: 84px;
+    height: 14px;
+    background-position: 0 -90px;
+    bottom: -12px;
+    margin-right: 2px;
+    left: 0;
+    transition: 0.2s;
+}
+tab-li.{
+	float: left;
+    height: 34px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #666;
+}
+
+.formtab{
+	padding-top: 30px;
+}
+
+.info1{
+	padding-top:30px;
+}
+/*控制中心区域大小*/
+#contorall{
+ width:50%;
+}
+#contoralr{
+ width:50%;
+
+}
+.mybtu{
+	width: 100%;
+    background: #FE5480;
+    height: 100
+}

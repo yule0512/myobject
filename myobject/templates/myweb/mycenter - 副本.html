@@ -1,0 +1,67 @@
+{% extends 'myweb/base.html' %}
+{% load static from staticfiles %}
+
+<!-- 个人中心样式 -->
+{% block mylink %}
+  <link rel="stylesheet" type="text/css" href="{% static 'myweb/css/my-center.css' %}">
+{% endblock %}
+
+{% block mainbody %}
+		<div class="container">
+			<!-- 面包屑导航 -->
+			<div class="mianbao">
+				<ol class="breadcrumb" style="background: #F8F8F8">
+				  <li><a href="{% url 'index' %}">首页</a></li>
+				  <li class="active">个人中心</li>
+				</ol>
+			</div>
+
+			<!-- 个人信息	 -->
+			<div class="col-md-10 co1-md-offset-1 mycenterinfo">
+			<br>
+	
+
+				<div><h4><span class="glyphicon glyphicon-user"></span>&nbsp;手机号: <span>{{ user.phone }}</span></h4></div>
+				<hr>
+				<div><h4><span class="glyphicon glyphicon-phone"></span>&nbsp;用户名: <span>{{ user.uname }}</span></h4></div>
+				<hr>
+				<div><h4><span class="glyphicon glyphicon-eye-open"></span>&nbsp;真是姓名: <span>{{ user.name }}</span></h4></div>
+				<hr>
+				<div><h4><span class="glyphicon glyphicon-envelope"></span>&nbsp;邮箱: <span>{{ user.email }}</span></h4></div>
+				<hr>
+				<div><h4><span class="glyphicon glyphicon-user"></span>&nbsp;默认收货地址:</h4><br>
+					 <span>{{ user.address }}</span></div><hr>
+				<div><h4>&nbsp;<a href="{% url 'myorder' request.session.user.id %}"><button type="button" class="btn btn-default">查看我的订单</button></a></h4><br>
+					 </div>
+				<br>
+
+			</div>
+			<!-- 其它 -->
+
+			<div class="col-md-10 co1-md-offset-1 otherinfo">
+			<br>
+			<br>
+				<h3>常见问题解答</h3>
+				<div class="row">
+					<div class = "col-md-4">
+						<span><h4>如何修改默认收货地址？</h4></span>
+						<p>可以登入美图官网，点击右上角个人中心按钮，在【账户信息】中进行默认收货地址的更改。</p>
+					</div>
+					<div class = "col-md-4">
+						<span><h4>如何修改预设的个人信息手机号码？</h4></span>
+						<p>登陆您的美图帐号，移动到右上角进入【账户信息】中，可以更改手机号码。</p>
+					</div>
+					<div class = "col-md-4">
+						<span><h4>我的帐号资料不是我的信息怎么办？</h4></span>
+						<p>请先不要着急，当您发现账号信息被冒登篡改时，建议您先修改安全性较高的登录密码；若账号被冒登，且预约了的抢购信息非您本人匹配的地址，而无法参与预约抢购时，请您提供UID、账号，和对应的异常截图给到官方客服，我们将协助您处理核实。</p>
+					</div>
+				</div>
+			</div>
+  		</div>
+
+
+  	<!-- 引入当前页面js -->
+	{% block myjslink%}
+
+	{% endblock %}
+{% endblock %}

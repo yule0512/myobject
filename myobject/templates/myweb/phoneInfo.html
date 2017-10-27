@@ -1,0 +1,109 @@
+<!-- 先继承父模板，
+	 再加载当前页面的static文件
+ -->
+{% extends 'myweb/base.html' %}
+{% load static from staticfiles %}
+
+{% block mylink %}
+  <link rel="stylesheet" type="text/css" href="{% static 'myweb/css/my-phoneInfo.css' %}">
+{% endblock %}
+
+{% block mainbody %}
+
+	<!-- 导航三固定导航 -->
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid" id="scroll_nav">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	     	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		       <span class="sr-only">Toggle navigation</span>
+		       <span class="icon-bar"></span>
+		       <span class="icon-bar"></span>
+		       <span class="icon-bar"></span>
+	        </button>
+	      	<div class="logoimg3">
+				<a href="{% url 'index' %}"><img src="{% static 'myweb/meitu-img/other-img/logo.png' %}" alt="meimeide" ></a>
+			</div>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+	     
+			<div class="titlelist3">
+				<ul> 	
+		            <li><a href="#">美图T8</a></li>
+		            <li>|</li>
+		            <li><a href="#">相关视频</a></li>
+		            <li>|</li>
+		            <li><a href="#">高清图集</a></li>
+		            <li>|</li>
+		            <li><a href="{% url 'detail' 47 %}">详细参数</a></li>
+		            <li>|</li>
+		            <li><a href="{% url 'phonelist2' 3 %}" target="_blank">选购配件</a></li>
+		            <li><a href="#">S码通道</a></li>
+					<li id="buy"><a href="">已售馨</a></li>
+				</ul>
+		</div>
+	    </div><!-- /.navbar-collapse -->
+
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<!-- 导航三固定导航 end-->
+	
+
+	<!-- 手机图片内容展示 -->
+	<div class="container-fluid position_top">
+ 		<div class="row">
+ 			<div class="col-md-12 bigimg1">
+ 				<div id="imgInfo1">
+ 					<img src="{% static 'myweb/meitu-img/other-img/bg-1-2.png' %}" alt="">
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="row">
+ 			<div class="col-md-12 bigimg2">
+ 				<div id="imgInfo2">
+ 				
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="row">
+ 			<div class="col-md-12 bigimg3">
+ 				<div id="imgInfo3">
+ 				
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="row">
+ 			<div class="col-md-12 bigimg4">
+ 				<div id="imgInfo4">
+ 				
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="row">
+ 			<div class="col-md-12 bigimg5">
+ 				<div id="imgInfo5">
+ 				
+ 				</div>
+ 			</div>
+ 		</div>
+	</div>
+
+	<!-- js -->
+	{% block myjslink%}
+	<script type="text/javascript" src="{% static 'myweb/js/my-phoneInfo.js' %}"></script>
+
+
+
+	
+	<!-- 引入 bootstrap -->
+  	<link href="{% static 'myweb/css/bootstrap.min.css' %}" rel="stylesheet">
+  	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  	<script src="{% static 'myweb/js/jquery-1.12.4.min.js' %}"></script>
+  	<!-- Include all compiled plugins (below), or include individual files as needed -->
+  	<script src="{% static 'myweb/js/bootstrap.min.js' %}"></script>
+	{% endblock %}
+
+{% endblock %}

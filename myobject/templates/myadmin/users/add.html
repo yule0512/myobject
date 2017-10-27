@@ -1,0 +1,94 @@
+{% extends "myadmin/base.html" %}
+<!-- 显示添加会员用户页面 -->
+{% block mainbody %}
+
+	<h3>
+		网站后台用户管理
+	</h3>
+	<form id="edit-profile" action="{% url 'myadmin_userinsert' %}" class="form-horizontal" method="post">
+		{% csrf_token %}
+		<fieldset>
+			<legend>添加会员</legend>
+			<div class="control-group">
+				<label class="control-label" for="input01">登录名</label>
+				<div class="controls">
+					<input type="text" name = "username" class="input-xlarge" id="input01" value="" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">密码</label>
+				<div class="controls">
+					<input type="password" name="password" class="input-xlarge" id="input01" value="" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">再次输入密码：</label>
+				<div class="controls">
+					<input type="password" name="repassword" class="input-xlarge" id="input01"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">真实姓名</label>
+				<div class="controls">
+					<input type="text" name="isname" class="input-xlarge" id="input01" value="" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">性别：</label>
+				<div class="controls">
+					<input type="radio" name="sex" class="input-xlarge" id="input01" value="1" /> 男
+					<input type="radio" name="sex" class="input-xlarge" id="input01" value="0" /> 女
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">电话</label>
+				<div class="controls">
+					<input type="text" name="phone" class="input-xlarge" id="input01" value="" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Email</label>
+				<div class="controls">
+					<input type="text" name="email" class="input-xlarge" id="input01" value="" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">住址</label>
+				<div class="controls">
+					<input type="text" name="address" class="input-xlarge" id="input01" value="" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">邮编：</label>
+				<div class="controls">
+					<input type="text" name="code" class="input-xlarge" id="input01"/>
+				</div>
+			</div>
+<!--
+			<div class="control-group">
+				<label class="control-label" for="fileInput">上传头像</label>
+				<div class="controls">
+					<input class="input-file" id="fileInput" type="file" />
+				</div>
+			</div>						
+ 			<div class="control-group">
+				<label class="control-label" for="textarea">说明</label>
+				<div class="controls">
+					<textarea class="input-xlarge" id="textarea" rows="4">Web technology junkie who writes innovative and bestselling technical books. Also enjoys Sunday bicycle rides and all "good" comedy.</textarea>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="optionsCheckbox">是否公开</label>
+				<div class="controls">
+					<input type="checkbox" id="optionsCheckbox" value="option1" checked="checked" />
+				</div>
+			</div>	 
+-->					
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">保存</button>
+				<button class="btn" type="reset">取消注册</button>
+			</div>
+		</fieldset>
+	</form>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "myadmin/base.html" %}
+
+{% block mainbody %}				
+	<h3>
+		商品订单信息管理
+	</h3>
+	<form id="edit-profile" action="{% url 'myadmin_typeupdate' type.id %}" class="form-horizontal" method="post">
+		{% csrf_token %}
+		<fieldset>
+			<legend>修改订单状态</legend>
+			<div class="control-group">
+				<label class="control-label" for="input01">订单状态</label>
+<!-- 				<div class="controls">
+					<input type="text" name="typename" class="input-xlarge" id="input01" value="{{ type.name }}" />
+				</div> -->
+
+				<div class="updatestatu controls">
+					<select name="orderstatus" id="" width>
+						<option 
+							{% if orderob.status == 0 %}
+								selected 
+							{% endif %}
+						value="" >新商品</option>
+						<option 
+							{% if order.status == 1 %}
+								selected 
+							{% endif %}
+						value="" >已发货</option>
+						<option 
+							{% if order.status == 2 %}
+								selected 
+							{% endif %}
+						value="" >已收货</option>
+						<option 
+							{% if orderob.status == 3 %}
+								selected 
+							{% endif %}
+						value="" >无效订单</option>
+					</select>
+					</div>
+			</div>				
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">保存</button>
+			</div>
+		</fieldset>
+	</form>
+{% endblock %}

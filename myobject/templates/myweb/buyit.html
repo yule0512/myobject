@@ -1,0 +1,118 @@
+{% extends 'myweb/base.html' %}
+{% load static from staticfiles %}
+
+
+{% block mainbody %}
+		<div class="container">
+		<!-- 面包屑导航 -->
+		<div>
+			<ol class="breadcrumb" style="background: #F8F8F8">
+			  <li><a href="{% url 'index' %}">首页</a></li>
+			  <li><a href="{% url 'shopCar' %}">购物车</a></li>
+			  <li><a href="{% url 'orders' %}">订单处理</a></li>
+			  <li class="active">购买页</li>
+			</ol>
+		</div>
+
+		<!-- 显示订单中 商品信息 -->
+		<div class="mygoods">
+			<table class="table mytable">
+				<tr>
+					<th>商品图片</th>
+					<th>商品名称</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th>小计</th>
+				</tr>
+				{% for goods in request.session.shoplist.values %}
+				<tr>
+					<td><a href="{% url 'detail' goods.id %}"><img src="{% static 'goodsimg/s_80X80' %}{{ goods.picname }}"></a></td>
+					<td><a href="{% url 'detail' goods.id %}">{{ goods.goods }}</a></td>
+					<td class="price">￥{{ goods.price }}</td>
+					<!-- <td><span name = "num">{{ goods.m }}</span></td> -->
+
+					<td>
+						<div class="row">
+							<div class="col-lg-6">
+							    <div class="input-group">
+							      <span>{{ goods.m }}</span>
+							    </div>
+							  </div>
+						 </div>
+					</td>
+					<!-- 将id作为自定义 属性 -->
+					<td>￥<span class="m-checkbox" name = "xiaoji" gid = {{goods.id}}>{% widthratio goods.price 1 goods.m %}</span></td>
+				</tr>
+				{% endfor %}
+
+			</table>	
+		</div>
+		<!-- 收件人用户信息 -->
+		<hr>
+		<br>
+		<form action="{% url 'ordersinsert' %}" method="post" >
+			{% csrf_token %}
+			<table width="1000">
+				<tr>
+					<td>
+						<h3><span class="label label-primary">收货人</span></h3>
+					</td>
+					<td>
+						<input name="linkname" value="{{ request.POST.linkname }}" readonly type="text" style="border:0px;background: #F8F8F8;height: 40px;">
+					</td>
+					<td>
+						<h3><span class="label label-primary">电话</span></h3>
+					</td>
+					<td>
+					<input type="text" name="phone" value="{{ request.POST.phone }}" readonly style="border:0px;background: #F8F8F8;height: 40px">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3><span class="label label-danger">地址</span></h3>
+					</td>
+					<td>
+					<input type="text" name="address" value="{{request.POST.address}}" readonly style="border:0px;background: #F8F8F8;height: 40px;width: 350px">
+					</td>
+					<td>
+						<h3><span class="label label-primary">邮箱</span></h3>
+					</td>
+					<td>
+					<input type="text" name="email" value="{{request.POST.email}}" readonly style="border:0px;background: #F8F8F8;height: 40px">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h3><span class="label label-danger">总计金额：</span>￥:<span name = "total">{{request.session.total}}</span></h3>
+						<input type="hidden" name="total" value="{{request.session.total}}">
+
+					</td>
+					<td>
+					<h1><span></span></h1>
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="2">
+						<button type="submit" class="btn btn-success" style="height: 50px;width:500px">已经支付未跳转，请点击跳转。。</button>
+					</td>
+				</tr>
+			</table>
+			<!-- 假的支付二维码 -->
+			<br>
+			<h3>扫码支付</h3>
+			<div class="container">
+				<div>
+					<img src="{% static 'myweb/meitu-img/other-img/buyit.png' %}" alt="赶紧支付！">
+				</div>
+			</div>
+		</form>
+<br>
+<hr>
+  </div>
+
+  	<!-- 引入当前页面js -->
+	{% block myjslink%}
+
+	{% endblock %}
+{% endblock %}

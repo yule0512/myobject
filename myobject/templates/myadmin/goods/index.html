@@ -1,0 +1,139 @@
+<!-- 继承主体 -->
+{% extends 'myadmin/base.html' %}
+
+
+<!-- 内容部分  商品类别 -->
+{% block mainbody %}
+
+
+<h3>
+		网站后台用户管理
+	</h3>
+	<legend>商品信息</legend>
+	<table class="table table-bordered table-striped">
+		<thead>
+<!-- 			<tr><a href=""><button type="button" class="btn btn-default">全部</button></a></tr>
+			<tr><a href=""><button type="button" class="btn btn-default">数码</button></a></tr>
+			<tr><a href=""><button type="button" class="btn btn-default">服装</button></a></tr>
+			<tr><a href=""><button type="button" class="btn btn-default">配件</button></a></tr> 
+			<tr><a href=""><button type="button" class="btn btn-default">礼品</button></a></tr> -->
+
+			<tr>
+				<th>
+					ID
+				</th>
+				<th colspan="2">
+				商品名称
+				</th>
+
+				<th>
+					商品类别
+				</th>
+				<th>
+					生产厂家
+				</th>
+				<th>
+					单价
+				</th>
+				<th>
+					库存量
+				</th>
+
+				<th>
+					被购买数量
+				</th>
+				<th>
+					点击次数
+				</th>
+
+				<th>
+					简介
+				</th>
+				<th>
+					添加时间
+				</th>
+				<th>
+					状态
+				</th>
+				<th>
+					操作
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for goods in goodslist %}
+			<tr>
+				<td>
+					{{ goods.id }}
+				</td>
+				<td>
+					<!-- 图片显示 -->
+					<img src="/static/goodsimg/s_80X80{{ goods.picname }}"/>
+				</td>
+				<td>
+					{{ goods.goods }}
+				</td>
+				<td>
+					{{ goods.typename }}
+				</td>
+				<td>
+					{{ goods.company }}
+				</td>
+				<td>
+					{{ goods.price }}
+				</td>
+				<td>
+					{{ goods.store }}
+				</td>
+				<td>
+					{{ goods.num }}
+				</td>
+				<td>
+					{{ goods.clicknum }}
+				</td>
+				
+				<td width="100">
+					{{ goods.descr }}
+				</td>
+				<td>
+					{{ goods.addtime }}
+				</td>
+				<td width="50">
+					{% if goods.state == 1 %}
+						新添加
+					{% elif goods.state == 2 %}
+						在售
+					{% else %}
+						下架
+					{% endif %}
+
+				</td>
+				<td width="60">
+					<a href="{% url 'myadmin_goodsedit' goods.id %}">
+					<button type="button" class="btn btn-info">编辑</button></a>
+					<a href="{% url 'myadmin_goodsdel' goods.id %}">
+					<button type="button" class="btn btn-danger">删除</button></a>
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>				
+	<div class="pagination">
+		<ul>
+			<li class="disabled">
+				<a href="#">&laquo;</a>
+			</li>
+ 			{% for pindex in plist %}
+			<li>
+				<a href={% url 'myadmin_goodsindex' pindex %}>{{ pindex }}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			</li>
+			{% endfor %}
+			<li>
+				<a href="">&raquo;</a>
+			</li>
+		</ul>
+	</div>
+
+
+
+{% endblock %}

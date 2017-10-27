@@ -1,0 +1,116 @@
+
+{% extends "myadmin/base.html" %}
+
+<!-- 显示浏览用户页面 -->
+{% block mainbody %}
+	<!-- 在这里定义script邮箱 -->
+	<h3>
+		网站后台用户管理
+	</h3>
+	<legend>浏览会员</legend>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>
+					ID
+				</th>
+				<th>
+					账号
+				</th>
+				<th>
+					姓名
+				</th>
+				<th>
+					性别
+				</th>
+				<th>
+					电话
+				</th>
+				<th>
+					地址
+				</th>
+				<th>
+					邮编
+				</th>
+				<th>
+					邮箱
+				</th>
+				<th>
+					状态
+				</th>
+				<th>
+					操作
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for user in userlist %}
+			<tr>
+				<td>
+					{{ user.id }}
+				</td>
+				<td>
+					{{ user.username }}
+				</td>
+				<td>
+					{{ user.name }}
+				</td>
+				<td>
+					{% if user.sex == 1 %}
+						男
+					{% elif user.sex == 0 %}
+						女
+					{% endif %}
+				</td>
+				<td>
+					{{ user.phone }}
+				</td>
+				<td>
+					{{ user.address }}
+				</td>
+				<td>
+					{{ user.code }}
+				</td>
+				<td>
+					{{ user.email }}
+				</td>
+				<td>
+					{% if user.state == 0 %}
+						管理员
+					{% elif user.state == 1 %}
+						启用
+					{% elif user.state == 2 %}
+						禁用
+					{% endif %}
+				</td>
+				<td>
+					<a href="{% url 'myadmin_useredit' user.id %}">
+					<button type="button" class="btn btn-info">编辑</button></a>&nbsp;
+					<!-- 删除时弹窗提示 是否删除 -->
+					<a href="javascript:doDel('{% url 'myadmin_userdel' user.id %}')" class="">
+						<button type="button" class="btn btn-danger">删除</button>
+					</a>
+				</td>
+			</tr>
+		{% endfor %}
+
+		</tbody>
+	</table>				
+	<div class="pagination">
+		<ul>
+<!-- 			<li class="disabled">
+				<a href="#">&laquo;</a>
+			</li> -->
+ 			{% for pindex in plist %}
+			<li>
+				<a href={% url 'myadmin_usersindex' pindex %}>{{ pindex }}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			</li>
+			{% endfor %}
+<!-- 			<li>
+				<a href="">&raquo;</a>
+			</li> -->
+		</ul>
+	</div>
+
+
+{% endblock %}

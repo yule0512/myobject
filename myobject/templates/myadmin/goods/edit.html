@@ -1,0 +1,96 @@
+{% extends "myadmin/base.html" %}
+
+{% block mainbody %}				
+	<h3>
+		商品类别信息管理
+	</h3>
+	<form id="edit-profile" action="{% url 'myadmin_goodsupdate' goods.id  %}" class="form-horizontal" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<fieldset>
+			<legend>修改商品</legend>
+			<!-- 旧图片 -->
+			<input type="hidden" name="oldpicname" value="{{ goods.picname }}"/>
+			<div class="control-group">
+				<label class="control-label" for="input01">商品类别</label>
+				<div class="controls">
+					<!-- 下拉框 类别判断，如果是父级的类型，则设置无法选中，但只适合只有俩级的类型！！ -->
+					<select name="typeid">
+						{% for type in typelist %}
+							<option 
+								{% if type.pid == 0 %}
+									disabled
+								{% endif %}
+
+								{% if type.id == goods.typeid %}
+									selected 
+								{% endif %}
+								 value="{{ type.id }}">{{ type.name }}</option>
+						{% endfor %}
+					</select>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">商品名称</label>
+				<div class="controls">
+					<input type="text" name="goodsname" class="input-xlarge" id="input01" placeholder = "请输入商品名称" value="{{ goods.goods }}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">生产厂家</label>
+				<div class="controls">
+					<input type="text" name="company" class="input-xlarge" id="input01" placeholder = "请输入商品厂家" value="{{ goods.company }}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">单价</label>
+				<div class="controls">
+					<input type="text" name="price" class="input-xlarge" id="input01" value="{{ goods.price }}" placeholder = "请输入商品单价"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">库存量：</label>
+				<div class="controls">
+					<input type="text" name="store" class="input-xlarge" id="input01" placeholder="请输入整数" value="{{ goods.store }}"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">商品图片：</label>
+				<div class="controls">
+					<input type="file" name="pic" class="input-xlarge" id="input01"/>
+				</div>
+			</div>	
+			<div class="control-group">
+				<label class="control-label" for="input01">状态：</label>
+				<div class="controls">
+					<input type="radio" name="state" class="input-xlarge" id="input01" 
+					{% if goods.state == 1 %}
+						checked  
+					{% endif %}
+					value="1" /> 新商品 
+					<input type="radio" name="state" class="input-xlarge" id="input01" 
+					{% if goods.state == 2 %}
+						checked  
+					{% endif %}
+					value="2" /> 在售
+					<input type="radio" name="state" class="input-xlarge" id="input01" 
+					{% if goods.state == 3 %}
+						checked  
+					{% endif %}
+					value="3" /> 已下架
+				</div>
+			</div>					
+ 			<div class="control-group">
+				<label class="control-label" for="textarea">商品说明</label>
+				<div class="controls">
+					<textarea class="input-xlarge" id="textarea" rows="4" name = "descr" placeholder="商品说明">{{ goods.descr }}</textarea>
+				</div>
+			</div>
+			
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">保存</button>
+				<button class="btn" type="reset">取消</button>
+			</div>
+		</fieldset>
+		<img src="./static/goodsimg/m_80X80{{ goods.picname }}">
+	</form>
+{% endblock %}

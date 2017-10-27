@@ -1,0 +1,42 @@
+/*副标题*/
+.sh4{
+	color: red
+}
+/*价格*/
+.sh3{
+	width: 100%;
+	background: #F5F5F5;
+}
+.sh3 .sp2{
+	padding-left: 5px;
+	color: red;
+	font-size: 20px;
+}
+/*商品导航  详情、规格、常见问题*/
+.spinfo li{
+	list-style: none;
+	float: left;
+	padding:0 12px;
+
+}
+.spinfo li a{
+	text-decoration: none;
+	color: black;
+}
+.spinfo li:hover {
+	border-bottom: 3px solid #70DDF9;
+}
+.spinfo li a:hover {
+	color:#0BC7F6;
+}
+.action{
+	color:#0BC7F6;
+}
+
+/*商品图片详情*/
+.isimg{
+	width: 100%;
+}
+.isimg img{
+	width: 100%;
+}

@@ -1,0 +1,105 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="cn">
+	<head>
+		<meta charset="utf-8">
+		<title>后台登录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="{% static 'myadmin/css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="{% static 'myadmin/css/bootstrap-responsive.min.css' %}" rel="stylesheet">
+
+
+
+		<link href="{% static 'myadmin/css/site.css' %}" rel="stylesheet">
+		<link href="{% static 'myadmin/css/mycsslogin.css' %}" rel="stylesheet">
+		<!--[if lt IE 9]><script src="{% static 'myadmin/js/html5.js' %}"></script><![endif]-->
+		<style type = "text/css">
+
+		</style>
+</head>
+<body>
+
+
+    <div class="loginWindow">
+      	<div class="logo">
+       		<h3>后台登录</h3>
+      	</div>
+    	<br>
+			<form id="login-form" class="well" method="post" action="{% url 'myadmin_dologin' %}">
+				{% csrf_token %}
+				<table width="350px">
+					<tr>
+						<td>
+							<label class="control-label" for="input01">账号</label>
+						</td>
+						<td>
+							<input type="text" class="span2" name="username" placeholder="输入账号" />
+						</td>
+						<td>
+							<span>{{ infocheckusername }}</span>
+							
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label class="control-label" for="input01">密码</label>
+						</td>
+						<td>
+							<input type="password" class="span2" name="password" placeholder="输入密码" />
+						</td>
+						<td>
+							<span>{{ infocheckpwd }}</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label class="control-label" for="input01">输入验证</label>
+						</td>
+						<td>
+							<input type="text" class="span2" name="code" placeholder="输入验证码" />
+						</td>
+						<td>
+							<span>{{ infocheckimg }}</span>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<img src="{% url 'myadmin_showcode'%}" onclick="this.src='{% url 'myadmin_showcode' %}?sn='+Math.random()"/>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<label class="checkbox"> 
+							<input type="checkbox" /> 记住密码 </label>
+						</td>
+						<td><a href="#">忘记密码？</a></td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<button type="submit" class="btn btn-primary" style="width: 330px">登录</button>
+
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="3">
+							<button type="button" class="btn" style="width: 330px">取消</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+<!-- 			<center>
+			<div style="margin: 0 auto;color: red;">
+				{{ info }}
+			</div>
+			</center> -->
+	</div>
+
+		<script src="{% static 'myadmin/js/jquery.min.js' %}"></script>
+		<script src="{% static 'myadmin/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'myadmin/js/site.js' %}"></script>
+</body>
+</html>
+

@@ -1,0 +1,151 @@
+<!-- 继承主体 -->
+{% extends 'myadmin/base.html' %}
+{% load static from staticfiles %}
+
+<!-- 内容部分  商品类别 -->
+{% block mainbody %}
+
+
+<h3>
+		网站后台订单管理
+	</h3>
+	<legend>订单信息</legend>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>
+					ID
+				</th>
+				<th>
+					收货人
+				</th>
+
+				<th>
+					收货地址
+				</th>
+				<th>
+					邮编
+				</th>
+				<th>
+					电话
+				</th>
+				<th>
+					下单时间
+				</th>
+
+				<th>
+					订单价格
+				</th>
+				<th>
+					状态
+				</th>
+				<th>
+					操作
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for order in orders %}
+			<tr id = "getOid" oid="{{ order.id }}">
+				<td>
+					{{ order.id }}
+				</td>
+				<td>
+					{{ order.linkman  }}
+				</td>
+				<td>
+					{{ order.address }}
+				</td>
+				<td>
+					{{ order.code }}
+				</td>
+				<td>
+					{{ order.phone }}
+				</td>
+				<td>
+					{{ order.addtime }}
+				</td>
+				<td>
+					￥{{ order.total }}
+				</td>
+				<td width="85">
+					<div class="updatestatu">
+					<select name="" id="statu" style="width:100px" onchange = "func({{ order.id }})">
+						<option
+							{% if order.status == 0 %}
+								selected 
+							{% endif %}
+						value="0">新商品</option>
+						<option 
+							{% if order.status == 1 %}
+								selected 
+							{% endif %}
+						value="1">已发货</option>
+						<option 
+							{% if order.status == 2 %}
+								selected 
+							{% endif %}
+						value="2">已收货</option>
+						<option 
+							{% if order.status == 3 %}
+								selected 
+							{% endif %}
+						value="3">无效订单</option>
+					</select>
+					</div>
+					<!-- <a href="">修改状态</a>					 -->
+				</td>
+				<td width="60">
+					<a href="{% url 'myadmin_orderDetail' order.id %}">
+					<button type="button" class="btn btn-info">查看</button></a>
+					<!-- <label>查看订单</label> -->
+				</td>
+			</tr>
+			<!-- 隐藏域获取订单ID -->
+
+		{% endfor %}
+		</tbody>
+	</table>				
+	<div class="pagination">
+		<ul>
+			<li class="disabled">
+				<a href="#">&laquo;</a>
+			</li>
+ 			{% for pindex in plist %}
+			<li>
+				<a href={% url 'myadmin_orderindex' pindex %}>{{ pindex }}&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			</li>
+			{% endfor %}
+			<li>
+				<a href="">&raquo;</a>
+			</li> 
+		</ul>
+	</div>
+
+	<script type="text/javascript"  src="{% static 'myadmin/js/jquery-1.8.3.min.js' %}"></script>
+	<script>
+		function func(oid){
+			datailStatChange(oid)
+			function datailStatChange(oid){
+				// alert(oid)
+				// 获取下拉框的状态值
+				var statu = $("#statu").val()
+				// alert(statu)
+				doajax(statu,oid)
+				function doajax(statu,oid){
+					// alert(oid)
+					$.ajax({
+						url:'/myadmin/ordereditstatu',
+						type:'GET',
+						dataType:'json',
+						data:{'ostatus':statu,'oid':oid},
+						// error:function() {
+						// 	alert("ajax加载失败！");
+						// },
+					})		
+				}
+			}
+		}
+	</script>
+
+{% endblock %}

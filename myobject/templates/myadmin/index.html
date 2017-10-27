@@ -1,0 +1,42 @@
+
+<!-- 子模板继承 -->
+{% extends "myadmin/base.html" %}
+{% load static from staticfiles %}
+
+<!-- 子模板中 主体内容部分 -->
+{% block mainbody %}
+
+	<h1>
+		网站后台管理首页
+	</h1>
+	<div class="hero-unit">
+		<h2>
+			Welcome!
+		</h2>
+		<p>
+			您好，这里是网站后台，您可以在后台做各种弄操作。
+		</p>
+		<!-- <img src="{% static 'myweb/meitu-img/other-img/lunbo1.jpg' %}"> -->
+
+<!-- 		<p>
+			<a href="help.htm" class="btn btn-primary btn-large">Start Tour</a> <a class="btn btn-large">No Thanks</a>
+		</p> -->
+	</div>
+	<div class="well summary">
+		<ul>
+			<li>
+				<a href="#"><span class="count">3</span> 新会员</a>
+			</li>
+			<li>
+				<a href="#"><span class="count">27</span> 新订单</a>
+			</li>
+			<li>
+				<a href="#"><span class="count">7</span> Messages</a>
+			</li>
+			<li class="last">
+				<a href="#"><span class="count">5</span> Files</a>
+			</li>
+		</ul>
+	</div>
+
+{% endblock %}

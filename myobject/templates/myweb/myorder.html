@@ -1,0 +1,71 @@
+{% extends 'myweb/base.html' %}
+{% load static from staticfiles %}
+
+<!-- 个人中心样式 -->
+{% block mylink %}
+  <link rel="stylesheet" type="text/css" href="{% static 'myweb/css/my-center.css' %}">
+{% endblock %}
+
+{% block mainbody %}
+		<div class="container">
+			<!-- 面包屑导航 -->
+			<div class="mianbao">
+				<ol class="breadcrumb" style="background: #F8F8F8">
+				  <li><a href="{% url 'index' %}">首页</a></li>
+				  <li><a href="{% url 'mycenter' request.session.user.id %}">个人中心</a></li>
+				  <li class="active">所有订单</li>
+				</ol>
+			</div>
+
+		
+			<!-- 个人信息	 -->
+			<div class="col-md-12 mycenterinfo">
+			<br>
+	
+
+				<div class="mygoods">
+
+					<table class="table mytable">
+						<tr>
+							<th>订单号</th>
+							<th>收件人</th>
+							<th>收件地址</th>
+							<th>购买时间</th>
+							<th>价格</th>
+							<th>操作</th>
+						</tr>
+						{% for order in orders %}
+						<tr>
+							<td>{{ order.id }}</td>
+							<td>{{ order.linkman }}</td>
+							<td>{{ order.address }}</td>
+							<td>{{ order.addtime }}</td>
+							<td class="price">￥{{ order.total }}</td>
+							<td><a href="{% url 'myorderDetail' order.id %}">查看详情</a></td>
+						</tr>
+						{% endfor %}
+					</table>	
+
+				</div>
+				<!-- 其它 -->
+				<div class="col-md-12 otherinfo">
+					<h3>常见问题解答</h3>
+					<div class="row">
+						<div class = "col-md-4">
+							<span><h4>订单已经生成了，为什么状态显示是失效的？</h4></span>
+							<p>订单生成后有效时间是1小时，您需要在1小时内完成该笔订单的支付，超过1小时后订单会自动失效。。</p>
+						</div>
+						<div class = "col-md-4">
+							<span><h4>已经支付，但订单信息却显示还未支付成功？</h4></span>
+							<p>1.请先确认相应的支付方式是否成功支付了订单； 2.保留付款截图信息，提供相关订单信息，联系官方在线客服核实处理。</p>
+						</div>
+						<div class = "col-md-4">
+							<span><h4>手机和配件是同一笔订单，可以取消配件，保留手机吗？</h4></span>
+							<p>抱歉，手机和配件是在同一笔订单中的，是无法取消的，两者是捆绑在一笔订单中的；若您需要取消订单中的任一商品，您可以在签收后，联系官网在线客服退款其中的商品。</p>
+						</div>
+					</div>
+				</div>
+  			</div>
+
+
+{% endblock %}

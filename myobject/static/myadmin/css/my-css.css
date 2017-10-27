@@ -1,0 +1,12 @@
+.isstate ul li{
+	list-style: none;
+	float: left;
+	
+}
+
+tr th{
+	text-align: center;
+}
+tr td{
+	text-align: center;
+}

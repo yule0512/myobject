@@ -1,0 +1,37 @@
+<!-- 继承父类主体表单 -->
+{% extends "myadmin/base.html" %}
+
+{% block mainbody %}
+
+	<h3>
+		网站后台商品类别管理
+	</h3>
+	<form id="edit-profile" action="{% url 'myadmin_typeinsert' %}" class="form-horizontal" method="post">
+		{% csrf_token %}
+		<fieldset>
+			<legend>添加商品类别</legend>
+			<!-- 定义隐藏域 存放pid 和 path -->
+			<input type="hidden" name="pid" value="{{ pid }}">
+			<input type="hidden" name="path" value="{{ path }}">
+			<div class="control-group">
+				<label class="control-label" for="input01">父类别名称：</label>
+				<div class="controls">
+					<input type="text" name="panme" class="input-xlarge" id="input01" value=""  placeholder="{{ name }}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">类别名称：</label>
+				<div class="controls">
+					<input type="text" name="typename" class="input-xlarge" id="input01"/>
+				</div>
+			</div>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">保存</button>
+				<button class="btn" type="reset">取消</button>
+			</div>
+		</fieldset>
+
+
+	</form>
+
+{% endblock %}

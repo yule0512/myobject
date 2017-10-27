@@ -1,0 +1,98 @@
+{% extends "myadmin/base.html" %}
+<!-- 显示添加会员用户页面 -->
+{% block mainbody %}
+
+	<h3>
+		网站后台用户管理
+	</h3>
+	<form id="edit-profile" action="{% url 'myadmin_userupdate' user.id %}" class="form-horizontal" method="post">
+		{% csrf_token %}
+
+		<fieldset>
+			<legend>编辑会员信息</legend>
+			<div class="control-group">
+				<label class="control-label" for="input01">登录名</label>
+				<div class="controls">
+					<input type="text" name = "username" class="input-xlarge" id="input01" value="{{ user.username }}" disabled="disabled" />
+				</div>
+			</div>
+			
+			<div class="control-group">
+				<label class="control-label" for="input01">真实姓名</label>
+				<div class="controls">
+					<input type="text" name="isname" class="input-xlarge" id="input01" value="{{ user.name }}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">性别：</label>
+				<div class="controls">
+					<input type="hidden" name="getsex" value = "{{ user.sex }}">
+					{% if user.sex is 1 %}
+					<input type="radio" name="sex" class="input-xlarge" id="input01" value="1" checked="checked" /> 男
+					<input type="radio" name="sex" class="input-xlarge" id="input01" value="0" /> 女
+					{% else %}
+					<input type="radio" name="sex" class="input-xlarge" id="input01" value="1" /> 男
+					<input type="radio" name="sex" class="input-xlarge" id="input01" value="0"  checked="checked" /> 女
+					{%  endif %}
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">电话</label>
+				<div class="controls">
+					<input type="text" name="phone" class="input-xlarge" id="input01" value="{{ user.phone }}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Email</label>
+				<div class="controls">
+					<input type="text" name="email" class="input-xlarge" id="input01" value="{{ user.email }}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">住址</label>
+				<div class="controls">
+					<input type="text" name="address" class="input-xlarge" id="input01" value="{{ user.address }}" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">邮编：</label>
+				<div class="controls">
+					<input type="text" name="code" class="input-xlarge" id="input01" value = "{{ user.code }}"/>
+				</div>
+			</div>	
+			<div class="control-group">
+				<label class="control-label" for="input01">状态：</label>
+				<div class="controls isstate">
+					<ul>
+						<li>
+						{% if user.state is 0 %}
+
+						<input type="radio" name="state" class="input-xlarge" id="input01" value="0" checked="checked" />管理员</li>
+						<input type="radio" name="state" class="input-xlarge" id="input01" value="1" /> 启用会员</li>
+						<li>
+						<input type="radio" name="state" class="input-xlarge" id="input01" value="2" /> 禁用用户</li>
+
+						{% elif user.state is 1 %}
+						<input type="radio" name="state" class="input-xlarge" id="input01" value="0"/>管理员</li>
+						<input type="radio" name="state" class="input-xlarge" id="input01" value="1"  checked="checked" /> 启用会员</li>
+						<li>
+						<input type="radio" name="state" class="input-xlarge" id="input01" value="2" /> 禁用用户</li>
+						
+						{% elif user.state is 2 %}
+						<input type="radio" name="state" class="input-xlarge" id="input01" value="0"/>管理员</li>
+						<input type="radio" name="state" class="input-xlarge" id="input01" value="1" /> 启用会员</li>
+						<input type="radio" name="state" class="input-xlarge" id="input01" value="2"   checked="checked"/> 禁用用户</li>
+						{% endif %}
+					</ul>
+					
+					
+				</div>
+			</div>		
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">保存</button>
+				<!-- <button class="btn" type="reset" hidden="hidden">取消修改</button> -->
+			</div>
+		</fieldset>
+	</form>
+
+{% endblock %}

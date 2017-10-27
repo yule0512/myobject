@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  	<link rel="shortcut icon" type="image/x-icon" href="./public/meitu-img/other-img/favicon.ico">
+	<title>账号管理_美图官网</title>
+
+	<!-- 引入 bootstrap -->
+  	<link href="./public/css/bootstrap.min.css" rel="stylesheet">
+  	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  	<script src="./public/js/jquery-1.12.4.min.js"></script>
+  	<!-- Include all compiled plugins (below), or include individual files as needed -->
+  	<script src="./public/js/bootstrap.min.js"></script>
+
+  	<!-- 自定义样式文件 -->
+    <link rel="stylesheet" type="text/css" href="./public/css/my-login.css">
+
+
+
+</head>
+
+<body>
+	
+	<!-- 导航 -->
+	<nav class="navbar navbar-default" id  = "mynva">
+	  <div class="container-fluid"  style="background: #FE4B6D;">
+	  	<!-- 左边logo -->
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="navbar-header" id="logoDiv">
+				    <a class="navbar-brand" href="./index.html">
+				    	<img alt="Brand" src="./public/meitu-img/other-img/logo2.png">
+				    </a>
+	    		</div>
+	    <!-- 右边登录 、 注册 -->
+	    <div id="lar">
+	    	<ul>
+	    		<li><a href="#">登录</a></li>
+	    		<li>|</li>
+	    		<li><a href="./signin.html">注册</a></li>
+	    	</ul>    	
+	    </div>
+			</div>
+		</div>
+	  </div>
+	</nav>
+	<!-- 导航 end -->
+	<br>
+	<br>
+	<!-- 大图 还有 登录表单 -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="row">
+					<!-- 左边 大图 -->
+					<div class="col-md-6">
+						<div>
+							<img src="./public/meitu-img/other-img/pic_login.jpg" alt="">
+						</div>
+					</div>
+					<!-- 右边 登录表单 -->
+					<div class="col-md-6">
+
+						<!-- 表单里面再用栅格居中一下 -->
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2"  style="border:1px solid #E8E8E8">
+								<div class="loginForm">
+									<h4>使用美团账号登录</h4>
+									<form>
+										<div class="form-group myinfo">
+										    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+										</div>
+										<div class="form-group myinfo">
+										    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+										</div>
+										<div class="checkbox">
+										    <label>
+										      <input type="checkbox">两周内自动登录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										    </label>
+										    <label>
+										    	<a href="#">忘记密码</a>
+										    </label>
+										</div>
+										<button type="button" class="btn mybtn">登&nbsp;录</button>
+										<h6>或使用其他方式登录：</h6>
+										<div class="otherlogin">
+											<span><a href="#">微博</a>/<a href="#">QQ</a></span>
+										</div>
+
+										<!-- 底部 -->
+										 <div class="row footer-bottom">
+											<div class="col-md-12 thefooter">
+												<span>还没有美图账号？<a href="#">立即注册</a></span>
+												
+											</div>
+										</div>
+									</form>
+								</div>			
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
