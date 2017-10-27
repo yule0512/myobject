@@ -6,7 +6,7 @@
         测试账号mummylin 123
        
         网站前台：
-        ![]myobject/myobject/static/descimg/前台首页.png
+        ![Alt text](myobject/myobject/static/descimg/前台首页.png)
            商城首页：各种产品展示（最新，热点，分类..）
            商品列表：搜索分类分页展示各种商品
            商品详情：展示详细商品信息（购买记录，评论，其他推荐）
