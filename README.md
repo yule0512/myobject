@@ -4,7 +4,7 @@
 
 ### 网站前台：
        
-        ![前台预览](https://github.com/yule0512/myobject/blob/master/myobject/static/descimg/%E5%89%8D%E5%8F%B0%E9%A6%96%E9%A1%B5.png)
+        ![前台预览](https://github.com/yule0512/myobject/blob/master/myobject/static/descimg/%E5%90%8E%E5%8F%B0.png)
         
         http://39.106.36.30:8002
         测试账号mummylin 123
